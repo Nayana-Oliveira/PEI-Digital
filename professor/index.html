@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Área do Professor | PEI Digital</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/modal.css" />
+  <link rel="stylesheet" href="../css/toast.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo-area">
+      <div class="header-text">
+        <h2>Escola Estadual</h2>
+        <h1>Eusébio de Paula Marcondes, Prof.</h1>
+        <p>Sistema de Plano Educacional Individualizado</p>
+      </div>
+
+      <img src="../assets/logo.png" alt="Logo da escola" class="logo">
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-title">
+      <h1>Área do Professor</h1>
+
+      <h2>
+        Olá,
+        <span id="nomeProfessor"></span>
+      </h2>
+      <p id="perfisUsuario"></p>
+      <p>
+        Gerencie seus PEIs e acompanhe todas as etapas do fluxo de aprovação.
+      </p>
+    </section>
+
+    <section class="dashboard-actions">
+      <button class="btn-primary" id="btnNovoPEI">
+        <strong>Novo PEI</strong>
+      </button>
+
+      <button class="btn-primary" id="btnAEE" style="display:none;">
+        <strong>Aprovação AEE</strong>
+      </button>
+
+      <button class="btn-primary" id="btnColaborativo" style="display:none;">
+        <strong>Aprovação Colaborativa</strong>
+      </button>
+
+      <button class="btn-secondary" id="btnMeusPEIs">
+        Meus PEIs
+      </button>
+
+      <button class="btn-secondary" id="btnSair">
+        <strong>Sair</strong>
+      </button>
+    </section>
+
+    <section class="section-header">
+      <div>
+        <h2 id="tituloLista">
+          Meus PEIs
+        </h2>
+
+        <p id="subtituloLista">
+          Todos os planos cadastrados por você.
+        </p>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div id="listaPEIs" class="grid">
+      </div>
+    </section>
+  </main>
+
+  <div class="overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Plano Educacional Individualizado</h2>
+        <button class="modal-close" id="fecharModal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+
+          <h3>Dados Gerais</h3>
+
+          <div class="modal-grid">
+            <div class="modal-field">
+              <span>Aluno</span>
+              <strong id="modalAluno"></strong>
+            </div>
+
+            <div class="modal-field">
+              <span>Turma</span>
+              <strong id="modalTurma"></strong>
+            </div>
+
+            <div class="modal-field">
+              <span>Professor</span>
+              <strong id="modalProfessor"></strong>
+            </div>
+
+            <div class="modal-field">
+              <span>Disciplina</span>
+              <strong id="modalDisciplina"></strong>
+            </div>
+
+            <div class="modal-field">
+              <span>Bimestre</span>
+              <strong id="modalBimestre"></strong>
+            </div>
+
+            <div class="modal-field">
+              <span>Status</span>
+              <strong id="modalStatus"></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Planejamento Pedagógico</h3>
+          <label>
+            Quais conteúdos e habilidades do Currículo da Rede Estadual
+            Paulista serão desenvolvidos no bimestre?
+          </label>
+
+          <div class="modal-text">
+            <p id="modalConteudos"></p>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Estratégias e Recursos</h3>
+          <label>
+            Quais estratégias, intervenções pedagógicas e recursos de
+            acessibilidade serão utilizados para favorecer o acesso,
+            participação e aprendizagem do estudante?
+          </label>
+
+          <div class="modal-text">
+            <p id="modalEstrategias"></p>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Avaliação da Aprendizagem</h3>
+          <label>
+            Quais instrumentos serão utilizados para acompanhar o
+            aprendizado do estudante de forma inclusiva e individualizada?
+          </label>
+
+          <div class="modal-text">
+            <p id="modalAvaliacao"></p>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Recursos Complementares</h3>
+          <label>
+            Quais vídeos, livros, jogos, exercícios ou outras atividades
+            podem ser indicados para apoiar, complementar, suplementar e
+            fortalecer o aprendizado do estudante neste componente
+            curricular, considerando suas potencialidades, especificidades e
+            ritmo de aprendizagem?
+          </label>
+
+          <div class="modal-text">
+            <p id="modalRecursos"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+
+        <button class="btn-secondary" id="btnDocumento" style="display:none;">
+          <i class="fa-solid fa-file-lines"></i>
+          Abrir documento
+        </button>
+
+        <button class="btn-secondary" id="btnPDF" style="display:none;">
+          <i class="fa-solid fa-file-pdf"></i>
+          Abrir PDF
+        </button>
+
+        <button class="btn-secondary" id="btnEditar" style="display:none;">
+          Editar PEI
+        </button>
+
+        <button class="btn-secondary" id="btnCorrecao" style="display:none;">
+          Solicitar Correção
+        </button>
+
+        <button class="btn-primary" id="btnAssinar" style="display:none;">
+          Assinar PEI
+        </button>
+
+        <button class="btn-primary" id="btnFechar">
+          Fechar
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="modalCorrecao">
+
+    <div class="modal">
+
+      <div class="modal-header">
+
+        <h2>Solicitar Correção</h2>
+
+        <button class="modal-close" id="fecharModalCorrecao">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <label for="motivoCorrecao">
+          Motivo da correção
+        </label>
+
+        <textarea id="motivoCorrecao" rows="6" placeholder="Explique o que deve ser corrigido..."></textarea>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button class="btn-secondary" id="cancelarCorrecao">
+          Cancelar
+        </button>
+
+        <button class="btn-primary" id="confirmarCorrecao">
+          Confirmar Correção
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/toast.js"></script>
+  <script src="../js/professor.js"></script>
+</body>
+
+</html>

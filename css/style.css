@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #c8102e;
+  --primary-dark: #a40d24;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --background: #f5f7fb;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --radius: 14px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --transition: 0.25s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  background: var(--surface);
+  border-bottom: 4px solid var(--primary);
+  padding: 24px 7%;
+}
+
+.logo-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo-area h2 {
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.logo-area h1 {
+  margin: 6px 0;
+  font-size: 2.2rem;
+}
+
+.logo-area p {
+  color: var(--text-light);
+}
+
+.logo-area img {
+  width: 95px;
+}
+
+.footer {
+  margin-top: 60px;
+  padding: 32px;
+  text-align: center;
+  color: var(--text-light);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px;
+  }
+
+  .logo-area {
+    gap: 20px;
+  }
+
+  .logo-area h1 {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .logo-area h2 {
+    font-size: 0.82rem;
+  }
+
+  .logo-area p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .logo-area img {
+    width: 75px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    padding: 18px 16px;
+  }
+
+  .logo-area {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .logo-area h1 {
+    font-size: 1.25rem;
+  }
+
+  .logo-area h2 {
+    font-size: 0.72rem;
+  }
+
+  .logo-area p {
+    font-size: 0.8rem;
+  }
+
+  .logo-area img {
+    width: 58px;
+  }
+}

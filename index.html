@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEI Digital | Login</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="stylesheet" href="./css/form.css">
+  <link rel="stylesheet" href="./css/modal.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="../css/toast.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="login-container">
+    <section class="login-card">
+      <img src="assets/logo.png" alt="Logo da escola" class="logo">
+
+      <h1>PEI Digital</h1>
+
+      <p class="subtitle">
+        Sistema de Plano Educacional Individualizado.
+      </p>
+
+      <div class="divider"></div>
+      <form id="loginForm">
+
+        <label for="email">
+          E-mail institucional
+        </label>
+
+        <input type="email" id="email" placeholder="nome@educacao.sp.gov.br" required>
+
+        <button type="submit">
+          Entrar
+        </button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Escola Estadual Eusébio de Paula Marcondes, Prof.</p>
+      <span>Plano Educacional Individualizado • PEI Digital</span>
+    </footer>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>

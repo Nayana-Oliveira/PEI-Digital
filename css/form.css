@@ -1,0 +1,236 @@
+.container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  border-radius: 20px;
+}
+
+.progress-card {
+  margin: 32px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ececec;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: var(--primary);
+  transition: 0.35s ease;
+}
+
+#peiForm {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.card {
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 24px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.card-title i {
+  font-size: 1.1rem;
+}
+
+.card-body {
+  padding: 28px;
+}
+
+.form-group + .form-group {
+  margin-top: 22px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  transition: var(--transition);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.12);
+}
+
+.student-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.student-item {
+  padding: 18px;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.student-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.student-item strong {
+  font-size: 1rem;
+}
+
+.char-counter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.error-message {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.buttons .btn-primary,
+.buttons .btn-secondary {
+  min-width: 190px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px 40px;
+  }
+
+  .progress-card {
+    margin: 24px 0;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .student-info {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: column-reverse;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}
+
+.warning-card {
+  margin: 24px 0;
+  padding: 20px;
+  background: #fff4f4;
+  border-left: 6px solid #c8102e;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.warning-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #c8102e;
+}
+
+.warning-card p {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 12px 32px;
+  }
+
+  .progress-card {
+    padding: 18px;
+  }
+
+  .card-title {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .card-body {
+    padding: 18px;
+  }
+
+  .form-group textarea {
+    min-height: 150px;
+  }
+
+  .buttons .btn-primary,
+  .buttons .btn-secondary {
+    min-width: 0;
+  }
+}

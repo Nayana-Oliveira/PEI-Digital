@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PEI Digital | Escola Estadual Eusébio de Paula Marcondes</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo.png" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/form.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/toast.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo-area">
+        <div class="header-text">
+          <h2>Escola Estadual</h2>
+          <h1>Eusébio de Paula Marcondes, Prof.</h1>
+          <p>Sistema de Plano Educacional Individualizado</p>
+        </div>
+        <h2 id="nomeProfessor"></h2>
+        <img src="../assets/logo.png" alt="Logo da escola" class="logo" />
+      </div>
+    </header>
+
+    <section class="progress-card">
+      <div class="warning-card" id="warningCard" style="display: none">
+        <h3>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          Correção solicitada
+        </h3>
+
+        <p id="motivoCorrecaoTexto"></p>
+      </div>
+
+      <div class="progress-header">
+        <span>Preenchimento do formulário</span>
+        <span id="progressText">0%</span>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <form id="peiForm">
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <span>Dados Gerais</span>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <label>
+              <i class="fa-solid fa-user-tie"></i>
+              Professor do Componente Curricular
+            </label>
+
+            <input type="text" id="professor" readonly>
+
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <i class="fa-solid fa-user-graduate"></i>
+              Estudante
+            </label>
+
+            <select id="aluno">
+              <option>Carregando alunos...</option>
+            </select>
+
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <i class="fa-solid fa-user-check"></i>
+              Professor(a) Especializado(a)
+            </label>
+
+            <input type="text" id="especializado" placeholder="Selecione um estudante" readonly />
+
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <i class="fa-solid fa-users"></i>
+              Professor Ensino Colaborativo
+            </label>
+
+            <input type="text" id="colaborativo" placeholder="Selecione um estudante" readonly />
+
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <i class="fa-solid fa-book"></i>
+              Componente Curricular
+            </label>
+
+            <select id="disciplina">
+              <option>Carregando disciplinas...</option>
+            </select>
+
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <i class="fa-solid fa-calendar-days"></i>
+              Bimestre
+            </label>
+
+            <select id="bimestre">
+              <option value="">Selecione</option>
+              <option>1º Bimestre</option>
+              <option>2º Bimestre</option>
+              <option>3º Bimestre</option>
+              <option>4º Bimestre</option>
+            </select>
+
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-user-graduate"></i>
+          <span>Informações do Estudante</span>
+        </div>
+
+        <div class="card-body">
+          <div class="student-info">
+            <div class="student-item">
+              <span class="student-label">Nome</span>
+              <strong id="infoNome"> Selecione um estudante </strong>
+            </div>
+
+            <div class="student-item">
+              <span class="student-label">Turma</span>
+              <strong id="infoTurma">—</strong>
+            </div>
+
+            <div class="student-item">
+              <span class="student-label">Professor AEE</span>
+              <strong id="infoAEE">—</strong>
+            </div>
+
+            <div class="student-item">
+              <span class="student-label"> Ensino Colaborativo </span>
+              <strong id="infoColab">—</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Planejamento Pedagógico</span>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <label>
+              Quais conteúdos e habilidades do Currículo da Rede Estadual
+              Paulista serão desenvolvidos no bimestre?
+            </label>
+
+            <textarea id="conteudos" rows="8"
+              placeholder="Descreva os conteúdos, habilidades e objetivos que serão trabalhados..."></textarea>
+
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-puzzle-piece"></i>
+          <span>Estratégias e Recursos</span>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <label>
+              Quais estratégias, intervenções pedagógicas e recursos de
+              acessibilidade serão utilizados para favorecer o acesso,
+              participação e aprendizagem do estudante?
+            </label>
+
+            <textarea id="estrategias" rows="8"
+              placeholder="Descreva como o estudante será acompanhado durante o bimestre..."></textarea>
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Avaliação da Aprendizagem</span>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <label>
+              Quais instrumentos serão utilizados para acompanhar o
+              aprendizado do estudante de forma inclusiva e individualizada?
+            </label>
+
+            <textarea id="avaliacao" rows="8"
+              placeholder="Explique como será realizada a avaliação do estudante..."></textarea>
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span>Recursos Complementares</span>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group">
+            <label>
+              Quais vídeos, livros, jogos, exercícios ou outras atividades
+              podem ser indicados para apoiar, complementar, suplementar e
+              fortalecer o aprendizado do estudante neste componente
+              curricular, considerando suas potencialidades, especificidades e
+              ritmo de aprendizagem?
+            </label>
+
+            <textarea id="recursos" rows="8"
+              placeholder="Sugira recursos que fortaleçam a aprendizagem do estudante..."></textarea>
+
+            <span class="error-message"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="buttons">
+        <button type="reset" class="btn-secondary">Limpar Formulário</button>
+
+        <button type="submit" class="btn-primary">Assinar e enviar PEI</button>
+      </section>
+    </form>
+
+    <footer class="footer">
+      <p><strong>PEI Digital</strong></p>
+      <p>Escola Estadual Eusébio de Paula Marcondes</p>
+      <p>Sistema de Plano Educacional Individualizado</p>
+    </footer>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/validation.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/toast.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
